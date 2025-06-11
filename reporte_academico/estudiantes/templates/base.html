@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Sistema de Reportes{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Reporte Académico</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="">Registrar Estudiante</a></li>
+            <li><a href="">Crear Reporte</a></li>
+        </ul>
+    </nav>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <script src="{% static 'js/app.js' %}"></script>
+</body>
+</html>
