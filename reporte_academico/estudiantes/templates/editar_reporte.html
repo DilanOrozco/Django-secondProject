@@ -44,7 +44,10 @@
             </div>
         </div>
         
-        <button type="submit" class="btn-submit">Actualizar Reporte</button>
+        <div class="btn-container">
+            <button type="submit" class="btn-submit">Guardar</button>
+            <a href="{% url 'listado_reportes' %}" class="btn-cancel">Cancelar</a>
+        </div>
     </form>
 </div>
 {% endblock %}

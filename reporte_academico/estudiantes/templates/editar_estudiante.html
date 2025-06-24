@@ -5,61 +5,63 @@
     <h2>Actualizar Información</h2>
     <form method="post">
         {% csrf_token %}
-
+        
         <fieldset class="fieldset-form">
             <legend>Datos Personales</legend>
             <div class="form-grid">
                 <div class="form-group">
                     <label>Nombre:</label>
-                    <input type="text" name="nombre">
+                    <input type="text" name="nombre" value="{{ estudiante.nombre }}">
                 </div>
                 <div class="form-group">
                     <label>Apellido:</label>
-                    <input type="text" name="apellido">
+                    <input type="text" name="apellido" value="{{ estudiante.apellido }}">
                 </div>
                 <div class="form-group">
                     <label>Tipo Documento:</label>
                     <select name="tipo_documento">
-                        <option value="CC">Cédula</option>
-                        <option value="TI">Tarjeta de Identidad</option>
+                        <option value="CC" {% if estudiante.tipo_documento == 'CC' %}selected{% endif %}>Cédula</option>
+                        <option value="TI" {% if estudiante.tipo_documento == 'TI' %}selected{% endif %}>Tarjeta de Identidad</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label>Número Documento:</label>
-                    <input type="text" name="numero_documento">
+                    <input type="text" name="numero_documento" value="{{ estudiante.numero_documento }}">
                 </div>
                 <div class="form-group">
                     <label>Teléfono:</label>
-                    <input type="text" name="telefono">
+                    <input type="text" name="telefono" value="{{ estudiante.telefono }}">
                 </div>
                 <div class="form-group">
                     <label>Correo:</label>
-                    <input type="email" name="correo">
+                    <input type="email" name="correo" value="{{ estudiante.correo }}">
                 </div>
             </div>
         </fieldset>
-
+        
         <fieldset class="fieldset-form">
             <legend>Información Académica</legend>
             <div class="form-grid">
                 <div class="form-group">
                     <label>Ficha:</label>
-                    <input type="text" name="ficha">
+                    <input type="text" name="ficha" value="{{ estudiante.ficha }}">
                 </div>
                 <div class="form-group">
                     <label>Programa:</label>
-                    <input type="text" name="programa">
+                    <input type="text" name="programa" value="{{ estudiante.programa }}">
                 </div>
                 <div class="form-group">
                     <label>Horario:</label>
-                    <input type="text" name="horario">
+                    <input type="text" name="horario" value="{{ estudiante.horario }}">
                 </div>
             </div>
         </fieldset>
-
-        <button type="submit" class="btn-submit">Guardar</button>
+        
+        <div class="btn-container">
+            <button type="submit" class="btn-submit">Guardar</button>
+            <a href="{% url 'listado_estudiantes' %}" class="btn-cancel">Cancelar</a>
+        </div>
     </form>
 </div>
-
 
 {% endblock %}

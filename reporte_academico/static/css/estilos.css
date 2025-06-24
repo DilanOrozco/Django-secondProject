@@ -18,10 +18,18 @@
     --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
+/* SOLUCIÓN FOOTER STICKY */
+html, body {
+    height: 100%;
+}
+
 body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background-color: var(--color-background);
     color: var(--color-text);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* HEADER */
@@ -34,6 +42,7 @@ body {
     background-color: var(--color-white);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     height: 80px;
+    flex-shrink: 0; /* Evita que el header se comprima */
 }
 
 .logo {
@@ -92,13 +101,19 @@ body {
     color: var(--color-white);
 }
 
+/* MAIN CONTENT - CLAVE PARA EL FOOTER STICKY */
+main {
+    flex: 1; /* Esto hace que el main crezca y empuje el footer hacia abajo */
+    padding: 20px; /* Opcional: agrega padding al contenido */
+}
 
-/* FOOTER */
+/* FOOTER - MODIFICADO PARA STICKY */
 .main-footer {
-    margin-top: 80px;
     background-color: var(--color-black);
     color: var(--color-white);
     padding: 25px 40px;
+    flex-shrink: 0; /* Evita que el footer se comprima */
+    margin-top: auto; /* Esto empuja el footer hacia abajo */
 }
 
 .footer-content {
@@ -521,18 +536,6 @@ input:focus, select:focus, textarea:focus {
     box-shadow: 0 0 0 3px rgba(75, 108, 183, 0.2);
 }
 
-.btn-submit {
-    margin-top: 20px;
-    padding: 12px 24px;
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    font-weight: 600;
-    border: none;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
 /* CSS adicional para mejorar el campo detalle */
 .detalle-section {
     width: 100%;
@@ -573,6 +576,52 @@ input:focus, select:focus, textarea:focus {
 .detalle-section textarea::placeholder {
     color: #999;
     font-style: italic;
+}
+
+
+/* Contenedor para alinear botones en línea */
+.btn-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.btn-submit {
+    margin-top: 0; 
+    padding: 12px 24px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    font-weight: 600;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 0.8rem;
+}
+
+.btn-cancel {
+    padding: 12px 24px;
+    background-color: transparent;
+    color: var(--color-primary);
+    font-weight: 600;
+    border: 2px solid var(--color-primary);
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.btn-submit:hover {
+    background-color: var(--color-secondary);
+}
+
+.btn-cancel:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
 }
 
 
