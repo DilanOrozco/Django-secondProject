@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Listado de reportes</h2>
+<div class="export-actions">
+    <a href="{% url 'exportar_reportes_pdf' %}" class="btn btn-danger"><i class="fa-solid fa-file-pdf fa-2xl"
+            style="color: #f50a0a;"></i></a>
+    <a href="{% url 'exportar_reportes_excel' %}" class="btn btn-success"><i class="fa-solid fa-file-excel fa-2xl"
+            style="color: #1b6a15;"></i></a>
+</div>
+<div class="table-container">
+    
+    <table class="responsive-table">
+        <thead>
+            <tr>
+                <th>Estudiante</th>
+                <th>Tipo</th>
+                <th>Detalle</th>
+                <th>Fecha</th>
+                <th>Instructor</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reporte in reportes %}
+            <tr>
+                <td>{{ reporte.estudiante }}</td>
+                <td>{{ reporte.tipo }}</td>
+                <td>{{ reporte.detalle }}</td>
+                <td>{{ reporte.fecha }}</td>
+                <td>{{ reporte.instructor }}</td>
+                <td><a href="{% url 'editar_reporte' reporte.id %}" class="btn-editar"><i class="fa-regular fa-pen-to-square"></i></a></td>
+                <td><a href="{% url 'eliminar_reporte' reporte.id %}" class="btn-d"><i class="fa-solid fa-trash"></i></a></td>
+            </tr>
+            {% endfor%}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}

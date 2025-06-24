@@ -2,25 +2,51 @@
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Sistema de Reportes{% endblock %}</title>
+    <script src="https://kit.fontawesome.com/2132230c71.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
 </head>
+
 <body>
-    <header>
-        <h1>Reporte Académico</h1>
+    <header class="main-header">
+        <div class="logo">
+            <img src="{% static 'img/logo.png' %}" alt="Logo">
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li class="nav-item"><a href="{% url 'index' %}">Inicio</a></li>
+                <li class="nav-item"><a href="{% url 'registrar' %}">Registrar Estudiante</a></li>
+                <li class="nav-item"><a href="{% url 'reporte' %}">Crear Reporte</a></li>
+                <li class="nav-item"><a href="{% url 'listado_estudiantes' %}">Listar Estudiantes</a></li>
+                <li class="nav-item"><a href="{% url 'listado_reportes' %}">Listar reportes</a></li>
+            </ul>
+        </nav>
+        <div class="actions">
+            <button class="btn-sing-up">Registrarse</button>
+            <button class="btn-sing-in">Iniciar Sesión</button>
+        </div>
     </header>
-    <nav>
-        <ul>
-            <li><a href="">Registrar Estudiante</a></li>
-            <li><a href="">Crear Reporte</a></li>
-        </ul>
-    </nav>
+
+
     <main>
         {% block content %}{% endblock %}
     </main>
 
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Sistema de Reportes. Todos los derechos reservados.</p>
+            <ul class="footer-links">
+                <li><a href="#">Términos</a></li>
+                <li><a href="#">Privacidad</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </div>
+    </footer>
+
     <script src="{% static 'js/app.js' %}"></script>
 </body>
+
 </html>

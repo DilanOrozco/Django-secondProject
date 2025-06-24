@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-form">
+    <h2>Crear Reporte Académico</h2>
+    <form method="post">
+        {% csrf_token %}
+        
+        <div class="form-grid">
+            <div class="form-group">
+                <label>Ficha:</label>
+                <select name="ficha">
+                    {% for estudiante in estudiantes %}
+                    <option value="{{ estudiante.ficha }}">{{ estudiante.ficha }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Estudiante:</label>
+                <select name="estudiante">
+                    {% for estudiante in estudiantes %}
+                    <option value="{{ estudiante.id }}">{{ estudiante.nombre }} {{ estudiante.apellido }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Tipo de Reporte:</label>
+                <select name="tipo">
+                    <option value="Académico">Académico</option>
+                    <option value="Disciplinario">Disciplinario</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Instructor:</label>
+                <input type="text" name="instructor">
+            </div>
+        </div>
+
+        <div class="detalle-section">
+            <div class="form-group">
+                <label>Detalle:</label>
+                <textarea name="detalle" rows="4" placeholder="Describe aquí los detalles del reporte..."></textarea>
+            </div>
+        </div>
+
+        <button type="submit" class="btn-submit">Guardar Reporte</button>
+    </form>
+</div>
+{% endblock %}

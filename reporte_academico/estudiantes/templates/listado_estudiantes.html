@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Listado estudiantes</h2>
+<div class="export-actions">
+    <a href="{% url 'exportar_pdf' %}" class="btn btn-danger"><i class="fa-solid fa-file-pdf fa-2xl"
+            style="color: #f50a0a;"></i></a>
+    <a href="{% url 'exportar_excel' %}" class="btn btn-success"><i class="fa-solid fa-file-excel fa-2xl"
+            style="color: #1b6a15;"></i></a>
+</div>
+
+<div class="table-container">
+    <table class="responsive-table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Tipo Doc.</th>
+                <th>Documento</th>
+                <th>Teléfono</th>
+                <th>Correo</th>
+                <th>Ficha</th>
+                <th>Programa</th>
+                <th>Jornada</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for estudiante in estudiantes %}
+            <tr>
+                <td data-label="Nombre">{{ estudiante.nombre }}</td>
+                <td data-label="Apellido">{{ estudiante.apellido }}</td>
+                <td data-label="Tipo Doc.">{{ estudiante.tipo_documento }}</td>
+                <td data-label="Documento">{{ estudiante.numero_documento }}</td>
+                <td data-label="Teléfono">{{ estudiante.telefono }}</td>
+                <td data-label="Correo">{{ estudiante.correo }}</td>
+                <td data-label="Ficha">{{ estudiante.ficha }}</td>
+                <td data-label="Programa">{{ estudiante.programa }}</td>
+                <td data-label="Horario">{{ estudiante.horario }}</td>
+                <td data-label="Editar"><a href="{% url 'editar_estudiante' estudiante.id %}" class="btn-editar"><i class="fa-regular fa-pen-to-square"></i></a></td>
+                <td data-label="Eliminar"><a href="{% url 'eliminar_estudiante' estudiante.id %}" class="btn-d"><i class="fa-solid fa-trash"></i></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

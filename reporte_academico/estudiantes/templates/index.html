@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% block title %}Inicio - Sistema de Reportes{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">Sistema de Reportes</h1>
+        <p class="hero-subtitle">Gestión académica simplificada</p>
+        <div class="hero-metrics">
+            <div class="metric">
+                <span class="metric-value">250</span>
+                <span class="metric-label">Estudiantes</span>
+            </div>
+            <div class="metric">
+                <span class="metric-value">450</span>
+                <span class="metric-label">Reportes</span>
+            </div>
+            <div class="metric">
+                <span class="metric-value">15</span>
+                <span class="metric-label">Docentes</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main Grid -->
+<section class="main-grid">
+    <div class="grid-item large">
+        <div class="grid-content">
+            <h2>Registrar Estudiante</h2>
+            <p>Incorpora nuevos estudiantes al sistema</p>
+            <a href="{% url 'registrar' %}" class="btn-primary">Registrar</a>
+        </div>
+    </div>
+
+    <div class="grid-item">
+        <div class="grid-content">
+            <h3>Crear Reporte</h3>
+            <p>Genera reportes académicos</p>
+            <a href="#" class="btn-secondary">Crear</a>
+        </div>
+    </div>
+
+    <div class="grid-item">
+        <div class="grid-content">
+            <h3>Consultar</h3>
+            <p>Revisa reportes existentes</p>
+            <a href="#" class="btn-secondary">Ver</a>
+        </div>
+    </div>
+
+    <div class="grid-item accent">
+        <div class="grid-content">
+            <h3>Estadísticas</h3>
+            <div class="stats-mini">
+                <div class="stat-row">
+                    <span>Reportes hoy</span>
+                    <span class="stat-number">12</span>
+                </div>
+                <div class="stat-row">
+                    <span>Pendientes</span>
+                    <span class="stat-number">5</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-item">
+        <div class="grid-content">
+            <h3>Configuración</h3>
+            <p>Ajustes del sistema</p>
+            <a href="#" class="btn-secondary">Configurar</a>
+        </div>
+    </div>
+
+    <div class="grid-item">
+        <div class="grid-content">
+            <h3>Búsqueda</h3>
+            <p>Encuentra estudiantes</p>
+            <a href="#" class="btn-secondary">Buscar</a>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Actions -->
+<section class="quick-actions">
+    <h2 class="section-title">Acciones Rápidas</h2>
+    <div class="actions-row">
+        <button class="action-btn">
+            <span class="action-label">Reporte Express</span>
+            <span class="action-sublabel">2 min</span>
+        </button>
+        <button class="action-btn">
+            <span class="action-label">Exportar</span>
+            <span class="action-sublabel">PDF/Excel</span>
+        </button>
+        <button class="action-btn">
+            <span class="action-label">Notificaciones</span>
+            <span class="action-sublabel">3 nuevas</span>
+        </button>
+    </div>
+</section>
+
+<!-- Recent Activity -->
+<section class="recent">
+    <h2 class="section-title">Actividad Reciente</h2>
+    <div class="activity-feed">
+        <div class="activity-item">
+            <div class="activity-dot completed"></div>
+            <div class="activity-content">
+                <span class="activity-title">Reporte completado</span>
+                <span class="activity-detail">María González • Hace 2h</span>
+            </div>
+        </div>
+        <div class="activity-item">
+            <div class="activity-dot new"></div>
+            <div class="activity-content">
+                <span class="activity-title">Estudiante registrado</span>
+                <span class="activity-detail">Carlos Mendoza • Hace 4h</span>
+            </div>
+        </div>
+        <div class="activity-item">
+            <div class="activity-dot updated"></div>
+            <div class="activity-content">
+                <span class="activity-title">Reporte actualizado</span>
+                <span class="activity-detail">Ana Pérez • Ayer</span>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
